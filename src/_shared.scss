@@ -1,0 +1,30 @@
+/* ===== Variables ===== */
+
+$primary-color: #282c34;
+$secondary-color: #15b0f6;
+
+$show-bg-home: true;
+$bg-home: url(./images/bg-light.jpg);
+$bg-opacity: .9;
+
+@mixin easeOut {
+  transition: all .5s ease-out;
+}
+
+@mixin background {
+  @if $show-bg-home {
+    background: $bg-home;
+    background-attachment: fixed;
+    background-size: cover;
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: rgba(16, 17, 20, .9);
+    }
+  }
+}

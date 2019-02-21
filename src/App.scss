@@ -1,0 +1,70 @@
+/* ===== GLOBAL ===== */
+@import './shared.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  @include background;
+  height: 100%;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+/* ===== Styling ===== */
+header {
+  position: fixed;
+  z-index: 9;
+  width: 100%;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.main-header {
+    font-size: 6rem;
+  }
+  &.sub-header span{
+    margin-bottom: 2rem;
+    padding: .2rem 1rem;
+    background: rgba(lighten($primary-color, 2), .5)
+  }
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.highlight {
+  color: $secondary-color;
+}
+
+.App {
+  display: block;
+  height: 100%;
+
+  .home-main {
+    margin-top: 30vh;
+    text-align: center;
+    .icons {
+      display: inline-block;
+      margin: .5rem;
+      a {
+        padding: .5rem;
+        &:hover {
+          color: $secondary-color;
+          @include easeOut();
+        }
+      }
+    }
+  }
+}
+
+
