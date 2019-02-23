@@ -1,5 +1,6 @@
 /* ===== GLOBAL ===== */
 @import './shared.scss';
+@import './mobile.scss';
 
 * {
   margin: 0;
@@ -8,11 +9,9 @@
 }
 
 body {
-  @include background;
+  @include background($bg-home);
   height: 100%;
-  color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.5;
   overflow: hidden;
 }
 
@@ -21,6 +20,10 @@ header {
   position: fixed;
   z-index: 9;
   width: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1, h2, h3 {
@@ -37,34 +40,49 @@ h1, h2, h3 {
   }
 }
 
-a {
-  text-decoration: none;
-  color: white;
-}
-
 .highlight {
   color: $secondary-color;
 }
 
-.App {
-  display: block;
-  height: 100%;
+#home-main, #about-me, #my-portfolio, #contact-me {
+  height: 100vh;
+  width: 100vw;
+}
 
-  .home-main {
-    margin-top: 30vh;
-    text-align: center;
-    .icons {
-      display: inline-block;
-      margin: .5rem;
-      a {
-        padding: .5rem;
-        &:hover {
-          color: $secondary-color;
-          @include easeOut();
-        }
+// Home page
+#home-main {
+  padding-top: 30vh;
+  text-align: center;
+  line-height: 1.5;
+  
+  .icons {
+    display: inline-block;
+    margin: .5rem;
+
+    a {
+      padding: .5rem;
+      color: white;
+      &:hover {
+        color: $secondary-color;
+        @include easeOut();
       }
     }
   }
+}
+
+// About me
+#about-me {
+  @include background($bg-about-me);
+}
+
+// Portfolio
+#my-portfolio {
+  @include background($bg-portfolio);
+}
+
+// Contact me
+#contact-me {
+  @include background($bg-contact-me);
 }
 
 

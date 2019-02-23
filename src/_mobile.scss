@@ -1,0 +1,53 @@
+/* ===== MOBILE STYLES ===== */
+
+// Smartphones -- (max-width: 500px), lowest supported width: 320px
+@include mediaSm {
+  #home-main {
+    padding-top: 20vh !important;
+
+    .main-header {
+      line-height: 1 !important;
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+// Tablets & Small Laptops -- (max-width: 768px)
+@include mediaMd {
+  .menu-overlay {
+    flex-flow: column wrap;
+
+    .branding, .nav-menu {
+      width: 100% !important;
+
+      &.show {
+        transform: translate3d(0, 0, 0) !important;
+      }
+    }
+    .branding {
+      max-height: 35vh !important;
+      transform: translate3d(-100%, 0, 0) !important;
+      padding: 1rem;
+
+      .portrait {
+        width: auto !important;
+        height: 100% !important;
+      }
+    }
+    .nav-menu {
+      height: 65vh !important;
+      transform: translate3d(100%, 0, 0) !important;
+    }
+
+  }
+}
+
+// Desktop & Laptops -- (min-width: 769px) and (max-width: 1170px)
+@include mediaLg {
+
+}
+
+// Wide Screens -- Anything over 1170px wide
+@include mediaXl {
+  
+}

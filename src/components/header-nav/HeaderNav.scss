@@ -1,1 +1,118 @@
 @import '../../shared.scss';
+
+.header-nav {
+
+  // Hamburger menu button
+  .btn-menu {
+    @include easeOut;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 5;
+
+    .bar {
+      width: 2rem;
+      height: .2rem;
+      margin: .3rem 0 0 0;
+      background: set-text-color($primary-color);
+      border-radius: 100px;
+    }
+
+    // Transform into X when menu is clicked
+    &.close {
+      transform: rotate(180deg);
+
+      .bar {
+        &:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+    }
+  } // END BTN-MENU
+
+  .menu-overlay {
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    visibility: hidden;
+
+    &.show {
+      visibility: visible;
+      opacity: .9;
+    }
+
+    .branding, .nav-menu {
+      display: flex;
+      flex: 1;
+      flex-flow: column wrap;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      height: 100vh;
+    }
+    .branding {
+      @include easeOut;
+      transform: translate3d(0, 100%, 0);
+      background: $primary-color;
+      
+      &.show {
+        // Slide up from bottom
+        transform: translate3d(0, 0, 0);
+      }
+
+      .portrait {
+        border: 2px solid $secondary-color;
+        opacity: 1;
+        height: 16rem;
+        width: 16rem;
+        border-radius: 50%;
+        align-self: center;
+      }
+    }
+    .nav-menu {
+      @include easeOut;
+      transform: translate3d(0, -100%, 0);
+      list-style-type: none;
+      background: darken($primary-color, 5);
+
+      &.show {
+        // Nav menu - slide down from top
+        transform: translate3d(0, 0, 0);
+      }
+      li {
+        @include easeOut;
+        transform: translate3d(600px, 0, 0);
+        font-size: 2rem;
+        font-weight: 300;
+        padding: .5rem 0;
+        &:hover {
+          color: $secondary-color;
+        }
+
+        &.show {
+          // Slide down from top with menu
+          transform: translate3d(0, 0, 0);
+        }
+        .active-link {
+          color: $secondary-color;
+          border-bottom: 2px solid $secondary-color;
+        }
+      } 
+    }
+    // Cascade animation on nav items
+    @for $i from 1 through 4 {
+      .nav-menu li:nth-child(#{$i}) {
+        transition-delay: $i * .1s;
+      }
+    }
+  } // END MENU OVERLAY
+
+} // END HEADER NAV

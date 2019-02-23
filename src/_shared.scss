@@ -3,28 +3,94 @@
 $primary-color: #282c34;
 $secondary-color: #15b0f6;
 
-$show-bg-home: true;
-$bg-home: url(./images/bg-light.jpg);
-$bg-opacity: .9;
+$bg-home: url(./images/bg-light-2.jpeg);
+$bg-about-me: url(./images/bg-light.jpg);
+$bg-portfolio: url(./images/bg-medium.jpeg);
+$bg-contact-me: url(./images/bg-dark.jpg);
 
-@mixin easeOut {
-  transition: all .5s ease-out;
-}
 
-@mixin background {
-  @if $show-bg-home {
+
+/* ===== Mixins & Functions ===== */
+
+// Set background image & overlay
+@mixin background($bg) {
+  width: 100vw;
+  height: 100vh;
+
+
+  @if $bg == $bg-home {
     background: $bg-home;
     background-attachment: fixed;
     background-size: cover;
+    background-color: $primary-color;
+    color: set-text-color($primary-color);
+
     &::after {
       content: '';
       position: absolute;
       z-index: -1;
       top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
+      width: 100vw;
+      height: 100vh;
       background: rgba(16, 17, 20, .9);
     }
+  }
+  @else if $bg == $bg-about-me {
+    position: relative;
+    background: $bg;
+    background-attachment: fixed;
+    background-size: cover;
+
+  }
+  @else if $bg == $bg-portfolio {
+    background: $bg;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  @else if $bg == $bg-contact-me {
+    background: $bg;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+}
+
+
+// Set text color based on background so it remains readable
+@function set-text-color($color) {
+  @if (lightness($color) > 40) {
+    @return black;
+  } @else {
+    @return white;
+  }
+}
+
+// Animation transition mixin
+@mixin easeOut {
+  transition: all .5s ease-out;
+}
+
+
+/* ===== Media query mixins in _mobile.scss ===== */
+@mixin mediaSm {
+  @media screen and (max-width: 500px) {
+    @content; 
+  }
+}
+
+@mixin mediaMd {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+
+@mixin mediaXl {
+  @media screen and (max-width: 1171px) {
+    @content;
   }
 }
