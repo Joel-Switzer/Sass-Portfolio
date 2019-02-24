@@ -10,9 +10,9 @@
 
 body {
   @include background($bg-home);
-  height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow: hidden;
+  height: 100%;
 }
 
 /* ===== Styling ===== */

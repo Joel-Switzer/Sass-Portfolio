@@ -4,9 +4,9 @@ $primary-color: #282c34;
 $secondary-color: #15b0f6;
 
 $bg-home: url(./images/bg-light-2.jpeg);
-$bg-about-me: url(./images/bg-light.jpg);
-$bg-portfolio: url(./images/bg-medium.jpeg);
-$bg-contact-me: url(./images/bg-dark.jpg);
+$bg-about-me: url(./images/bg-white.jpeg);
+$bg-portfolio: url(./images/bg-light-3.jpeg);
+$bg-contact-me: url(./images/bg-light.jpg);
 
 
 
@@ -14,44 +14,52 @@ $bg-contact-me: url(./images/bg-dark.jpg);
 
 // Set background image & overlay
 @mixin background($bg) {
+  position: relative;
   width: 100vw;
   height: 100vh;
-
-
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+  }
+  
   @if $bg == $bg-home {
-    background: $bg-home;
-    background-attachment: fixed;
-    background-size: cover;
+    background: $bg;
     background-color: $primary-color;
     color: set-text-color($primary-color);
 
     &::after {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
+      z-index: -1 !important;
       background: rgba(16, 17, 20, .9);
     }
   }
   @else if $bg == $bg-about-me {
-    position: relative;
     background: $bg;
-    background-attachment: fixed;
-    background-size: cover;
-
+    background-color: white;
+    color: set-text-color(white);
   }
   @else if $bg == $bg-portfolio {
     background: $bg;
-    background-attachment: fixed;
-    background-size: cover;
+    background-color: white;
+    color: set-text-color(white);
+
+    &::after {
+      display: none;
+    }
   }
   @else if $bg == $bg-contact-me {
     background: $bg;
-    background-attachment: fixed;
-    background-size: cover;
+    background-color: $primary-color;
+    color: set-text-color($primary-color);
+    &::after {
+      background: rgba(16, 17, 20, .65);
+    }
   }
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 

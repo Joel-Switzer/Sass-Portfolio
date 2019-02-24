@@ -19,7 +19,8 @@ class App extends Component {
   handleScroll = (e) => {
     const incriment = document.documentElement.clientHeight
     const current = this.state.currentSection
-    let temp = current;
+    let temp = current
+
     if (e.deltaY < 0) {
       // Scroll up'
       temp -= incriment
@@ -42,13 +43,21 @@ class App extends Component {
         currentSection: temp 
       })
     }
+    // Change hamburger to black on light backgrounds
+    const menuBars = document.querySelectorAll('.btn-menu .bar'),
+      home = 0, 
+      aboutMe = incriment * 1, 
+      portfolio = incriment * 2, 
+      contact = incriment * 3
 
-    if (e.target.value === 'down') {
-
+    if (temp === portfolio || temp === aboutMe) {
+      menuBars.forEach(item => item.classList.add('dark'))
+    } else if (temp === home || temp === contact) {
+      menuBars.forEach(item => item.classList.remove('dark'))
     }
   }
   componentDidMount() {
-    window.addEventListener('wheel', this.handleScroll);
+    window.addEventListener('wheel', this.handleScroll, {passive: true});
   }
   componentWillUnmount() {
     window.removeEventListener('wheel', this.handleScroll);
