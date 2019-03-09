@@ -17,7 +17,7 @@
       margin: .3rem 0 0 0;
       background: set-text-color($primary-color);
       border-radius: 100px;
-      transition: background 2.5s;
+      transition: background-color 2.5s;
 
       &.dark {
         background: set-text-color(white) !important;

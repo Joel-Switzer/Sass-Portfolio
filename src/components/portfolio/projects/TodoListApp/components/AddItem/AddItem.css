@@ -1,0 +1,38 @@
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  .textIn {
+    flex: 10;
+    padding: 1em;
+    font-size: .7em;
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  .textIn {
+    flex: 10;
+    padding: 1em;
+    font-size: .9em;
+  }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+  .textIn {
+    flex: 10;
+    padding: 1em;
+    font-size: 1.1em;
+  }
+}
+
+.submit-main {
+  display: flex;
+}
+
+.submit-btn {
+    flex: 2;
+}
+
+.submit-btn:hover {
+    cursor: pointer;
+}

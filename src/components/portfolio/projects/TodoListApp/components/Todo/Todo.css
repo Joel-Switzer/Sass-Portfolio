@@ -1,0 +1,128 @@
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  .todo-content {
+    display: inline-block;
+    flex: 5;
+    padding-left:2rem;
+    padding-right: 1rem; 
+    font-weight: 700;
+    font-size: .7rem;
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  .todo-content {
+    display: inline-block;
+    flex: 5;
+    padding-left:3em;
+    padding-right:1em; 
+    font-weight: 700;
+    font-size: 1em;
+  }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+  .todo-content {
+    display: inline-block;
+    flex: 5;
+    padding-left:3em;
+    padding-right:1em; 
+    font-weight: 700;
+    font-size: 1.1em;
+  }
+}
+
+.todo-complete {
+  text-decoration: line-through;
+}
+
+.todo-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-row div {
+  word-wrap: break-word;
+  overflow: auto;
+  min-height: 1.1em;
+  max-height: 4em;
+}
+
+.btnDel {
+  float: right;
+  font-weight: 600;
+  background-color: #B22222;
+  color: #ccc;
+  text-decoration-style: bold;
+  border-radius: 50%;
+  border: 1px solid black;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* =============================================================================  /
+    The base CSS for the checkbox was borrowed from https://www.w3schools.com/ 
+/  ============================================================================= */ 
+
+/* Checkbox container */
+.check-container {
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide default checkbox */
+.container .invis-check {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Make a custom checkbox */
+.customBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border: 2px solid black;
+}
+
+/* Turn background green when checked */
+.check-container input:checked ~ .customBox {
+  background-color: rgb(33, 243, 61);
+  overflow: hidden;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.customBox:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.check-container input:checked ~ .customBox:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.check-container .customBox:after {
+  left: 7px;
+  width: 5px;
+  height: 15px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

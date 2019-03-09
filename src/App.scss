@@ -41,6 +41,9 @@ a {
   height: 100vh;
   width: 100vw;
 }
+#about-me {
+  @include background($bg-about-me);
+}
 
 // Home page
 #home-main {
@@ -58,7 +61,7 @@ a {
     &.sub-header span{
       margin-bottom: 2rem;
       padding: .2rem 1rem;
-      background: rgba(lighten($primary-color, 2), .5)
+      background: rgba(lighten($primary-color, 2), .5);
     }
   }
 
@@ -75,21 +78,34 @@ a {
       }
     }
   }
-}
 
-// About me
-#about-me {
-  @include background($bg-about-me);
+  .scroll-button {
+    margin-top: 15vh;
+    display: inline-block;
 
-  &-portrait {
-    border-radius: 50%;
-    border: 1px solid $secondary-color;
-    height: auto;
-    width: 60%;
-    margin: .5rem;
-    max-width: 25rem;
+    p {
+      font-size: 1.5rem;
+    }
+    .swipe-down {
+      background: url(./images/swipe-down.png);
+      height: 64px;
+      width: 64px;
+      border: none;
+      animation: swipe-animation 2s infinite;
+    }
+    
+    @keyframes swipe-animation {
+      0% {
+        transform: rotate(30deg)
+      }
+      50% {
+        transform: rotate(-30deg)
+      }
+      100% {
+        transform: rotate(30deg)
+      }
+    }
   }
-
 }
 
 // Portfolio

@@ -1,0 +1,34 @@
+.calculator-display {
+  background-color: #f4f4f4;
+  text-align: right;
+  color: black;
+  text-shadow: none;
+  border: .1em solid #383838;
+  border-radius: 6%;
+  height: 6em;
+  width: 15.9em;
+  margin-bottom: .5em;
+}
+    .calculator-display div {
+      margin: .15em;
+      margin-top: .3em;
+      max-width: 15em;
+      max-height: 2em;
+      line-height: 1;
+    }
+    #calc-answer {
+      font-size: 1.5em;
+      font-weight: 600;
+      width: 95%;
+      height: 45%;
+      overflow: auto;
+      word-wrap: break-word;
+    }
+    #calc-history {
+      margin-top: 1rem;
+      width: 95%;
+      height: 45%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      font-weight: 400; 
+    }

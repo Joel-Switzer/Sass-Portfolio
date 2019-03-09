@@ -1,0 +1,63 @@
+.keypad {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: 4em 4em 4em 4em;
+    grid-template-rows: auto auto auto auto auto auto;
+    background: transparent;
+}
+    .keypad button {
+        height: 4em;
+        margin: .1em;
+        border-radius: 10%;
+        font-weight: 600;
+        background-color: white;
+    }
+    .keypad .btn-ops {
+        background-color: silver;
+        max-height: 4em;
+
+    }
+    .keypad #btn-multiply {
+        grid-column: 4;
+        grid-row: 4;
+    }
+    .keypad #btn-subtract{
+        grid-column: 4;
+        grid-row: 5;
+    }
+    .keypad #btn-plus {
+        grid-column: 4;
+        grid-row: 6;
+    }
+    .keypad #btn-enter {
+        grid-column: 4;
+        grid-row: 7;
+    }
+      .keypad #btn-sign span,
+      .keypad #btn-divide span,
+      .keypad #btn-multiply span,
+      .keypad #btn-subtract span,
+      .keypad #btn-plus span,
+      .keypad #btn-enter span {
+        font-size: 1.2em;
+      }
+      .keypad .num-pad #btn-decimal span {
+        font-size: 1.5em;
+      }
+      .keypad #btn-sign span {
+        font-size: 1.1em;
+      }
+      .keypad #btn-backspace span {
+        font-size: 1.6em;
+      }
+
+.num-pad {
+    display: grid;
+    grid-template-columns: 4em 4em 4em;
+    grid-template-rows: auto auto auto auto;
+    grid-column: 1 / span 4;
+    grid-row: 4 / span 4; 
+}
+    .num-pad #btn-0 {
+        grid-column: 1 / span 2;
+    }

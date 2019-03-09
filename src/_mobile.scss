@@ -3,14 +3,68 @@
 // Smartphones -- (max-width: 500px), lowest supported width: 320px
 @include mediaSm {
   #home-main {
-    padding-top: 20vh !important;
+    padding-top: 17vh !important;
 
     .main-header {
+      font-size: 4rem !important;
       line-height: 1 !important;
       padding-bottom: 1rem;
-      font-size: 5.5rem!important;
+      font-size: 5.5rem !important;
     }
-  }
+    .sub-header span{
+      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      padding: .2rem 0 !important;
+      background: rgba(lighten($primary-color, 2), .5)
+    }
+    p {
+      font-size: 1.1rem !important;
+    }
+    .scroll-button {
+      margin-top: 12vh !important;
+    }
+  } // END HOME MAIN
+
+  .about-me-section {
+  
+    .title-div {
+      flex-direction: column !important;
+
+      .portrait {
+        align-self: center;
+        height: 10rem !important;
+        width: 10rem !important;
+        margin: .1rem !important;
+      }
+
+      div {
+        padding: .2rem !important;
+
+        h2 {
+          font-size: 10vw !important;
+          max-width: 70vw;
+        }
+      }
+    }
+  } // END ABOUT ME
+
+  // Portfolio section
+  .portfolio-display {
+
+    .portfolio-header {
+      font-size: 3rem !important;
+    }
+    .project-list {
+      max-width: 300px !important;
+    }
+
+    // Scale down for small phones
+    @media screen and (max-width: 350px){
+      .portfolio-track {
+        transform: scale(.85);
+      }
+    }
+  } // END PORTFOLIO
 }
 
 // Tablets & Small Laptops -- (max-width: 768px)
@@ -40,7 +94,15 @@
       transform: translate3d(100%, 0, 0) !important;
     }
 
-  }
+  } // END NAV MENU
+
+    // Portfolio section
+    .portfolio-display {
+
+      .project-list {
+        width: 600px !important;
+      }
+    } // END PORTFOLIO
 }
 
 // Desktop & Laptops -- (min-width: 769px) and (max-width: 1170px)
@@ -50,5 +112,5 @@
 
 // Wide Screens -- Anything over 1170px wide
 @include mediaXl {
-  
+
 }

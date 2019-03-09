@@ -9,7 +9,6 @@ $bg-portfolio: url(./images/bg-white.jpeg);
 $bg-contact-me: url(./images/bg-dark-2.jpg);
 
 
-
 /* ===== Mixins & Functions ===== */
 
 // Set background image & overlay
@@ -18,22 +17,18 @@ $bg-contact-me: url(./images/bg-dark-2.jpg);
   background: $bg;
   background-attachment: fixed;
   background-size: cover;
-  width: 100vw;
-  height: 100vh;
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    width: 100vw;
-    height: 100vh;
-  }
   
   @if $bg == $bg-home {
     background-color: $primary-color;
     color: set-text-color($primary-color);
 
     &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      width: 100vw;
+      height: 100vh;
       z-index: -1 !important;
       background: rgba(16, 17, 20, .9);
     }
@@ -41,9 +36,6 @@ $bg-contact-me: url(./images/bg-dark-2.jpg);
   @else if $bg == $bg-portfolio {
     background-color: white;
     color: set-text-color(white);
-    &::after {
-      display: none;
-    }
   }
   @else if $bg == $bg-about-me or $bg == $bg-contact-me {
     background-color: $primary-color;
@@ -51,7 +43,6 @@ $bg-contact-me: url(./images/bg-dark-2.jpg);
   }
 
 }
-
 
 // Set text color based on background so it remains readable
 @function set-text-color($color) {

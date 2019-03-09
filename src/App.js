@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
-// import { BrowserRouter, Route, Link } from 'react-router-dom'
 import { animateScroll as Scroll } from 'react-scroll'
 import Swipe from 'react-easy-swipe'
+import './App.scss'
+
+// Site sections & components
 import HeaderNav from './components/header-nav/HeaderNav'
+import AboutMe from './components/about-me/AboutMe'
+import Portfolio from './components/portfolio/Portfolio'
+
+// Images & icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
-import Portrait from './images/avatar.png'
-import './App.scss'
 
 class App extends Component {
   constructor(props) {
@@ -19,47 +23,47 @@ class App extends Component {
   
   // Scroll listener
   componentDidMount() {
-    window.addEventListener('wheel', this.handleScroll, {passive: true});
+    window.addEventListener('wheel', this.handleScroll, {passive: true})
   }
   componentWillUnmount() {
-    window.removeEventListener('wheel', this.handleScroll);
+    window.removeEventListener('wheel', this.handleScroll)
   }
 
-  // Smooth scroll between sections
   handleScroll = (e) => {
     const incriment = document.documentElement.clientHeight
-    const current = this.state.currentSection
-    let temp = current
+    let current = this.state.currentSection
 
     // Set scroll direction
     if (e.deltaY < 0 || e === 'up') {
-      temp -= incriment
-      if (temp < 0) {
-        temp = 0;
+      current -= incriment
+      if (current < 0) {
+        current = 0
       }
     }
     else if (e.deltaY > 0 || e === 'down' || e.target.value === 'down') {
-      temp += incriment;
-      if (temp > incriment * 3) {
-        temp = incriment * 3
+      current += incriment;
+      if (current > incriment * 3) {
+        current = incriment * 3
       }
     }
 
     // Scroll to target section
-    Scroll.scrollTo(temp)
+    Scroll.scrollTo(current)
     this.setState({
-      currentSection: temp 
+      currentSection: current 
     })
 
     // Change hamburger menu to black on light backgrounds
     const menuBars = document.querySelectorAll('.btn-menu .bar')
     const portfolio = incriment * 2
 
-    if (temp === portfolio) {
+    if (current === portfolio) {
       menuBars.forEach(item => item.classList.add('dark'))
     } else {
       menuBars.forEach(item => item.classList.remove('dark'))
     }
+
+    
   }
 
   // Handle swipe events on mobile
@@ -75,12 +79,15 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <HeaderNav />
+          <HeaderNav current={this.state.currentSection} />
         </header>
-        <Swipe onSwipeDown={this.swipeDown} onSwipeUp={this.swipeUp}>
+
+        <Swipe allowMouseEvents={true}
+          onSwipeDown={this.swipeDown} 
+          onSwipeUp={this.swipeUp}>
           <section id='home-main'>
             <h1 className='main-header'><span className='highlight'>Joel</span> Switzer</h1>
-            <h2 className='sub-header'><span>Web Developer, Programmer, Fast Learner</span></h2>
+            <h2 className='sub-header'><span>Web Developer, Professional Learner</span></h2>
           
             <div className='icons'>
               <a href='#!' target='_blank' rel="noopener noreferrer">
@@ -94,20 +101,25 @@ class App extends Component {
               </a>
             </div>
 
-            <button onClick={this.handleScroll} value='down'>click me</button>
+            <br />
 
-          </section>
-          <section id='about-me'>
-            <div className='overlay-wrapper'>
-              <img id='about-me-portrait' src={Portrait} alt='A picture of me' />
+            <div className='scroll-button'>
+              <p>Scroll down!</p>
+              <button className='swipe-down' onClick={this.handleScroll} value='down'></button>
             </div>
           </section>
-          <section id='my-portfolio'>
           
+          <section id='about-me'>
+            <AboutMe />
           </section>
+
+          <section id='my-portfolio'>
+            <Portfolio />
+          </section>
+
           <section id='contact-me'>
             <div className='overlay-wrapper'>
-            
+
             </div>
           </section>
         </Swipe>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-scroll'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Portrait from '../../images/avatar.png'
+import PropTypes from 'prop-types'
+import Portrait from '../../images/me.jpg'
 import './HeaderNav.scss'
 
 
@@ -30,7 +30,7 @@ export class HeaderNav extends Component {
           </div>
           <ul className='nav-menu'>
             <li>
-            <Link to='home-main' 
+              <Link to='home-main' 
                 activeClass='active-link'
                 spy={true}
                 smooth={true}
@@ -62,6 +62,11 @@ export class HeaderNav extends Component {
       </nav>
     )
   }
+}
+
+// Ensure proptypes are required
+HeaderNav.propTypes = {
+  current: PropTypes.number.isRequired
 }
 
 export default HeaderNav

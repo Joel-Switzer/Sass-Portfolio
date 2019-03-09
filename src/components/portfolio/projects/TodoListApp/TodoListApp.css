@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 454px) {
+  .todoListApp {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: center;
+    min-height: 300px;
+    max-height: 600px;
+    min-width: 85vw;
+    border: .2em solid black;
+    border-radius: 10%;
+    background-color: white;
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 455px) and (max-width: 960px) {
+  .todoListApp {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: center;
+    min-height: 400px;
+    min-width: 400px;
+    height: 600px;
+    border: .2em solid black;
+    border-radius: 10%;
+    background-color: white;
+  }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+  .todoListApp {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: center;
+    min-height: 600px;
+    min-width: 600px;
+    height: 730px;
+    width: 625px;
+    border: .2em solid black;
+    border-radius: 10%;
+    background-color: white;
+  }
+}

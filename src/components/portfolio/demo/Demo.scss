@@ -1,0 +1,73 @@
+/*    Modal    */
+#demo-modal {
+  position: fixed;
+  margin: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: #f4f4f4;
+  padding: 1.5em;
+  border: 1px solid black;
+}
+  .demo-content {
+    min-width: 250px;
+  }
+  .hide-modal {
+    display: none;
+  }
+  .show-modal {
+    visibility: show;
+    animation: animateDrop 1.5s ease-out;
+  }
+  .demo-close {
+    position: absolute;
+    margin-top: .3em;
+    margin-right: .5em;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    z-index: 10;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: sans-serif;
+    display: block;
+    color: darkred;
+  }
+    .demo-close:hover,
+    .demo-close:focus {
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+/*    Dim overlay     */
+#demo-dim-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  user-select: none;
+  z-index: 9;
+  background-color: rgba(0,0,0,0.8); 
+}
+  .hide-demo-overlay {
+    visibility: hidden;
+  }
+  .show-demo-overlay {
+    visibility: show;
+  }
+
+  @keyframes animateDrop {
+    0% {
+      transform: translateY(-200%) translateX(-50%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(-50%) translateX(-50%);
+      opacity: 1;
+    }
+  }
