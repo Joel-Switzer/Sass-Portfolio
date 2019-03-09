@@ -1,14 +1,18 @@
 {
-  "main.css": "/Sass-Portfolio/static/css/main.ce6be9bc.chunk.css",
-  "main.js": "/Sass-Portfolio/static/js/main.20edb601.chunk.js",
-  "main.js.map": "/Sass-Portfolio/static/js/main.20edb601.chunk.js.map",
+  "main.css": "/Sass-Portfolio/static/css/main.6149bb92.chunk.css",
+  "main.js": "/Sass-Portfolio/static/js/main.1d936fc6.chunk.js",
+  "main.js.map": "/Sass-Portfolio/static/js/main.1d936fc6.chunk.js.map",
   "runtime~main.js": "/Sass-Portfolio/static/js/runtime~main.a9cbb87e.js",
   "runtime~main.js.map": "/Sass-Portfolio/static/js/runtime~main.a9cbb87e.js.map",
-  "static/js/2.c1d013b4.chunk.js": "/Sass-Portfolio/static/js/2.c1d013b4.chunk.js",
-  "static/js/2.c1d013b4.chunk.js.map": "/Sass-Portfolio/static/js/2.c1d013b4.chunk.js.map",
+  "static/js/2.2c5b47b1.chunk.js": "/Sass-Portfolio/static/js/2.2c5b47b1.chunk.js",
+  "static/js/2.2c5b47b1.chunk.js.map": "/Sass-Portfolio/static/js/2.2c5b47b1.chunk.js.map",
   "index.html": "/Sass-Portfolio/index.html",
-  "precache-manifest.ee6dbd57ff40d26f197947bd174d5542.js": "/Sass-Portfolio/precache-manifest.ee6dbd57ff40d26f197947bd174d5542.js",
+  "precache-manifest.4bac45b043a0aaf4ccbab29d18572627.js": "/Sass-Portfolio/precache-manifest.4bac45b043a0aaf4ccbab29d18572627.js",
   "service-worker.js": "/Sass-Portfolio/service-worker.js",
-  "static/css/main.ce6be9bc.chunk.css.map": "/Sass-Portfolio/static/css/main.ce6be9bc.chunk.css.map",
-  "static/media/App.scss": "/Sass-Portfolio/static/media/bg-white.470027c4.jpeg"
+  "static/css/main.6149bb92.chunk.css.map": "/Sass-Portfolio/static/css/main.6149bb92.chunk.css.map",
+  "static/media/App.scss": "/Sass-Portfolio/static/media/bg-white.9369ba27.jpeg",
+  "static/media/Project.scss": "/Sass-Portfolio/static/media/bg-mobo.17aaf697.jpg",
+  "static/media/first-portfolio-preview.png": "/Sass-Portfolio/static/media/first-portfolio-preview.12bd4426.png",
+  "static/media/me.jpg": "/Sass-Portfolio/static/media/me.5d9efd52.jpg",
+  "static/media/todo-preview.png": "/Sass-Portfolio/static/media/todo-preview.457702ab.png"
 }
