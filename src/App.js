@@ -29,6 +29,7 @@ class App extends Component {
     window.removeEventListener('wheel', this.handleScroll)
   }
 
+  // Event handler
   handleScroll = (e) => {
     const incriment = document.documentElement.clientHeight
     let current = this.state.currentSection
@@ -41,19 +42,41 @@ class App extends Component {
       }
     }
     else if (e.deltaY > 0 || e === 'down' || e.target.value === 'down') {
-      current += incriment;
+      current += incriment
       if (current > incriment * 3) {
         current = incriment * 3
       }
     }
 
-    // Scroll to target section
-    Scroll.scrollTo(current)
-    this.setState({
-      currentSection: current 
-    })
+    // Scroll to section. Debounce was implemented to reduce scroll sensitivity
+    this.debounce(current)
 
-    // Change hamburger menu to black on light backgrounds
+    // Update hamburger menu color
+    this.updateMenu(current, incriment)
+  }
+
+  // Debounce scroll event
+  debounce = (current) => {
+    let delay = 100
+    let temp
+
+    // Clear unexecuted scroll events
+    if (temp) {
+      clearTimeout(temp) 
+    }
+
+    // Scroll to section after 250ms
+    temp = setTimeout(() => {
+      Scroll.scrollTo(current)
+      this.setState({
+        currentSection: current
+      })
+      temp = null
+    }, delay)
+  }
+
+  // Update hamburger menu color depending on section
+  updateMenu = (current, incriment) => {
     const menuBars = document.querySelectorAll('.btn-menu .bar')
     const portfolio = incriment * 2
 
@@ -62,8 +85,6 @@ class App extends Component {
     } else {
       menuBars.forEach(item => item.classList.remove('dark'))
     }
-
-    
   }
 
   // Handle swipe events on mobile
@@ -90,13 +111,13 @@ class App extends Component {
             <h2 className='sub-header'><span>Web Developer, Professional Learner</span></h2>
           
             <div className='icons'>
-              <a href='#!' target='_blank' rel="noopener noreferrer">
+              <a href='mailto: joelswitzer1@gmail.com'>
                 <FontAwesomeIcon icon={faEnvelope} size='4x' />
               </a>
-              <a href='#!' target='_blank' rel="noopener noreferrer">
+              <a href='http://www.linkedin.com/in/Joel-Switzer' target='_blank' rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faLinkedin} size='4x' />
               </a>
-              <a href='#!' target='_blank' rel="noopener noreferrer">
+              <a href='https://github.com/Joel-Switzer' target='_blank' rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faGithub} size='4x' />
               </a>
             </div>

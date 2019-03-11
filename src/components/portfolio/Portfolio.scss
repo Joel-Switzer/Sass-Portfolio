@@ -39,18 +39,18 @@
       height: 3.5rem;
       border-radius: 50%;
       border: 2px solid black;
-      background-color: white;
+      background-color: lightgrey;
       background-position: center;
       background-repeat: no-repeat;
   
       &.left-arrow {
         left: 0;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         background-image: url(./images/left-arrow.png);
       }
       &.right-arrow {
         right: 0;
-        transform: translateX(50%);
+        transform: translate(50%, -50%);
         background-image: url(./images/right-arrow.png);
       }
       &:hover {

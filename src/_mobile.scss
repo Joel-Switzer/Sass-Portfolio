@@ -58,7 +58,7 @@
       max-width: 300px !important;
     }
 
-    // Scale down for small phones
+    // Scale down for extra small phones
     @media screen and (max-width: 350px){
       .portfolio-track {
         transform: scale(.85);
@@ -96,13 +96,13 @@
 
   } // END NAV MENU
 
-    // Portfolio section
-    .portfolio-display {
+  // Portfolio section
+  .portfolio-display {
 
-      .project-list {
-        width: 600px !important;
-      }
-    } // END PORTFOLIO
+    .project-list {
+      width: 600px !important;
+    }
+  } // END PORTFOLIO
 }
 
 // Desktop & Laptops -- (min-width: 769px) and (max-width: 1170px)
