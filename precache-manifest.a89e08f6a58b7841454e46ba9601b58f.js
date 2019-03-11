@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/Sass-Portfolio/static/media/bg-white.9369ba27.jpeg"
   },
   {
-    "revision": "1d936fc6f51f4d7a7c6e",
-    "url": "/Sass-Portfolio/static/css/main.6149bb92.chunk.css"
+    "revision": "a90be92b9c55fa565535",
+    "url": "/Sass-Portfolio/static/css/main.d9f5041d.chunk.css"
   },
   {
     "revision": "a9cbb87e3f4d8f92c876",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/Sass-Portfolio/static/media/first-portfolio-preview.12bd4426.png"
   },
   {
-    "revision": "1d936fc6f51f4d7a7c6e",
-    "url": "/Sass-Portfolio/static/js/main.1d936fc6.chunk.js"
+    "revision": "a90be92b9c55fa565535",
+    "url": "/Sass-Portfolio/static/js/main.a90be92b.chunk.js"
   },
   {
     "revision": "9aa74de5e89d132f34d924b8f24534f4",
@@ -52,7 +52,7 @@ self.__precacheManifest = [
     "url": "/Sass-Portfolio/static/media/bg-mobo.17aaf697.jpg"
   },
   {
-    "revision": "a459377ad8b9619ce587fa5b6c30ce39",
+    "revision": "c840c5203346a64d88fe2e230f66dcd5",
     "url": "/Sass-Portfolio/index.html"
   }
 ];
