@@ -3,15 +3,13 @@ import { animateScroll as Scroll } from 'react-scroll'
 import Swipe from 'react-easy-swipe'
 import './App.scss'
 
-// Site sections & components
+// Site components & sections
 import HeaderNav from './components/header-nav/HeaderNav'
+import SideNav from './components/side-nav/SideNav'
+import Home from './components/home-page/HomePage'
 import AboutMe from './components/about-me/AboutMe'
 import Portfolio from './components/portfolio/Portfolio'
-
-// Images & icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
+import ContactMe from './components/contact-me/ContactMe'
 
 class App extends Component {
   constructor(props) {
@@ -77,16 +75,16 @@ class App extends Component {
   }
 
   // Update side nav and hamburger menu when scrolled
-  updateMenu = (current, incriment) => {
+  updateMenu = (current, i) => {
     const menuBars = document.querySelectorAll('.btn-menu .bar')
     const sideNav = document.querySelectorAll('.side-nav div')
-    let temp = null;
     const home = 0, 
-      about = incriment * 1,
-      portfolio = incriment * 2,
-      contact = incriment * 3
+      about = i * 1,
+      portfolio = i * 2,
+      contact = i * 3
 
     // Switch active class to correct link
+    let temp = null;
     sideNav.forEach(item => item.classList.remove('active'))
     switch (current) {
       case home:
@@ -102,13 +100,13 @@ class App extends Component {
         temp.classList.add('active')
         break
       case contact:
-        temp = document.querySelector('.side-nav #link-contact')
+        temp = document.querySelector('#link-contact')
         temp.classList.add('active')
         break
       default: 
         break
     }
-    
+
     // Set menu colors for section
     if (current === portfolio) {
       menuBars.forEach(item => item.classList.add('dark'))
@@ -126,6 +124,7 @@ class App extends Component {
   swipeUp = () => {
     this.handleScroll('down')
   }
+  
   // Handle clicking side nav buttons
   handleSideNav = (e) => {
     const i = document.documentElement.clientHeight,
@@ -133,7 +132,7 @@ class App extends Component {
       about = i * 1,
       portfolio = i * 2,
       contact = i * 3
-      
+
     switch(e.target.id) {
       case 'link-home':
         this.debounce(home)
@@ -157,41 +156,18 @@ class App extends Component {
   }
 
   render() {
+    const current = this.state.currentSection
     return (
       <div className="App">
         <header>
-          <HeaderNav current={this.state.currentSection} />
+          <HeaderNav current={current} />
         </header>
-        <nav className='side-nav'>
-          <div id='link-home' className='active' onClick={this.handleSideNav}></div>
-          <div id='link-about' onClick={this.handleSideNav}></div>
-          <div id='link-portfolio' onClick={this.handleSideNav}></div>
-          <div id='link-contact' onClick={this.handleSideNav}></div>
-        </nav>
 
-        <Swipe allowMouseEvents={true}
-          onSwipeDown={this.swipeDown} 
-          onSwipeUp={this.swipeUp}>
+        <SideNav current={current} handleSideNav={this.handleSideNav} />
+
+        <Swipe onSwipeDown={this.swipeDown} onSwipeUp={this.swipeUp}>
           <section id='home-main'>
-            <h1 className='main-header'><span className='highlight'>Joel</span> Switzer</h1>
-            <h2 className='sub-header'><span>Web Developer, Professional Learner</span></h2>
-          
-            <div className='icons'>
-              <a href='mailto: joelswitzer1@gmail.com'>
-                <FontAwesomeIcon icon={faEnvelope} size='4x' />
-              </a>
-              <a href='http://www.linkedin.com/in/Joel-Switzer' target='_blank' rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faLinkedin} size='4x' />
-              </a>
-              <a href='https://github.com/Joel-Switzer' target='_blank' rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faGithub} size='4x' />
-              </a>
-            </div>
-
-            <div className='scroll-button'>
-              <p>Scroll down!</p>
-              <button className='swipe-down' onClick={this.handleScroll} value='down'></button>
-            </div>
+            <Home scroll={this.handleScroll}/>
           </section>
           
           <section id='about-me'>
@@ -203,9 +179,7 @@ class App extends Component {
           </section>
 
           <section id='contact-me'>
-            <div className='overlay-wrapper'>
-
-            </div>
+            <ContactMe />
           </section>
         </Swipe>
       </div>

@@ -1,0 +1,35 @@
+@import '../../shared.scss';
+
+// Sidebar Nav
+.side-nav {
+  position: fixed;
+  left: .5rem;
+  top: 45vh;
+  z-index: 5;
+  
+  div {
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 2s;
+    margin-bottom: .5rem;
+    border: 1px solid black;
+    border-radius: 50%;
+    height: .75rem;
+    width: .75rem;
+
+    &:hover {
+      transition: .5s;
+      background-color: $secondary-color;
+    }
+  }
+
+  .dark {
+    background-color: black;
+  }
+
+  .active {
+    transition: .5s !important;
+    transform: scale(1.5);
+    background-color: $secondary-color;
+  }
+}

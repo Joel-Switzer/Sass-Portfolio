@@ -1,0 +1,65 @@
+@import '../../shared.scss';
+
+// Home page styles
+#home-main {
+  padding-top: 30vh;
+  text-align: center;
+  line-height: 1.5;
+  
+  h1, h2, h3 {
+    margin: 0;
+    font-weight: 400;
+  
+    &.main-header {
+      font-size: 6rem;
+    }
+    &.sub-header span{
+      margin-bottom: 2rem;
+      padding: .2rem 1rem;
+      background: rgba(lighten($primary-color, 2), .5);
+    }
+  }
+
+  .icons {
+    display: inline-block;
+    margin: .5rem;
+
+    a {
+      padding: .5rem;
+      color: white;
+      &:hover {
+        color: $secondary-color;
+        @include easeOut();
+      }
+    }
+  }
+
+  .scroll-button {
+    margin-top: 15vh;
+    display: block;
+
+    p {
+      font-size: 1.5rem;
+    }
+    .swipe-down {
+      background: url(../../images/swipe-down.png);
+      height: 64px;
+      width: 64px;
+      border: none;
+      animation: swipe-animation 2s infinite;
+    }
+    
+    // Swipe animation
+    @keyframes swipe-animation {
+      0% {
+        transform: rotate(30deg)
+      }
+      50% {
+        transform: rotate(-30deg)
+      }
+      100% {
+        transform: rotate(30deg)
+      }
+    }
+  }
+}
