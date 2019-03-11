@@ -17,7 +17,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentSection: 0
+      currentSection: 0,
+      scrollDelay: 100
     }
   }
   
@@ -29,7 +30,7 @@ class App extends Component {
     window.removeEventListener('wheel', this.handleScroll)
   }
 
-  // Event handler
+  // Scroll handler
   handleScroll = (e) => {
     const incriment = document.documentElement.clientHeight
     let current = this.state.currentSection
@@ -51,21 +52,21 @@ class App extends Component {
     // Scroll to section. Debounce was implemented to reduce scroll sensitivity
     this.debounce(current)
 
-    // Update hamburger menu color
+    // Update menu to reflect scroll
     this.updateMenu(current, incriment)
   }
 
-  // Debounce scroll event
+  // Debounce for scroll events
   debounce = (current) => {
-    let delay = 100
+    let delay = this.state.scrollDelay
     let temp
 
-    // Clear unexecuted scroll events
+    // Clear unexecuted events
     if (temp) {
       clearTimeout(temp) 
     }
 
-    // Scroll to section after 250ms
+    // Scroll to section after delay
     temp = setTimeout(() => {
       Scroll.scrollTo(current)
       this.setState({
@@ -75,15 +76,46 @@ class App extends Component {
     }, delay)
   }
 
-  // Update hamburger menu color depending on section
+  // Update side nav and hamburger menu when scrolled
   updateMenu = (current, incriment) => {
     const menuBars = document.querySelectorAll('.btn-menu .bar')
-    const portfolio = incriment * 2
+    const sideNav = document.querySelectorAll('.side-nav div')
+    let temp = null;
+    const home = 0, 
+      about = incriment * 1,
+      portfolio = incriment * 2,
+      contact = incriment * 3
 
+    // Switch active class to correct link
+    sideNav.forEach(item => item.classList.remove('active'))
+    switch (current) {
+      case home:
+        temp = document.querySelector('#link-home')
+        temp.classList.add('active')
+        break
+      case about:
+        temp = document.querySelector('#link-about')
+        temp.classList.add('active')
+        break
+      case portfolio:
+        temp = document.querySelector('#link-portfolio')
+        temp.classList.add('active')
+        break
+      case contact:
+        temp = document.querySelector('.side-nav #link-contact')
+        temp.classList.add('active')
+        break
+      default: 
+        break
+    }
+    
+    // Set menu colors for section
     if (current === portfolio) {
       menuBars.forEach(item => item.classList.add('dark'))
+      sideNav.forEach(item => item.classList.add('dark'))
     } else {
       menuBars.forEach(item => item.classList.remove('dark'))
+      sideNav.forEach(item => item.classList.remove('dark'))
     }
   }
 
@@ -94,7 +126,35 @@ class App extends Component {
   swipeUp = () => {
     this.handleScroll('down')
   }
-
+  // Handle clicking side nav buttons
+  handleSideNav = (e) => {
+    const i = document.documentElement.clientHeight,
+      home = 0, 
+      about = i * 1,
+      portfolio = i * 2,
+      contact = i * 3
+      
+    switch(e.target.id) {
+      case 'link-home':
+        this.debounce(home)
+        this.updateMenu(home, i)
+        break
+      case 'link-about':
+        this.debounce(about)
+        this.updateMenu(about, i)
+        break
+      case 'link-portfolio':
+        this.debounce(portfolio)
+        this.updateMenu(portfolio, i)
+        break
+      case 'link-contact':
+        this.debounce(contact)
+        this.updateMenu(contact, i)
+        break
+      default:
+        break
+    }
+  }
 
   render() {
     return (
@@ -102,6 +162,12 @@ class App extends Component {
         <header>
           <HeaderNav current={this.state.currentSection} />
         </header>
+        <nav className='side-nav'>
+          <div id='link-home' className='active' onClick={this.handleSideNav}></div>
+          <div id='link-about' onClick={this.handleSideNav}></div>
+          <div id='link-portfolio' onClick={this.handleSideNav}></div>
+          <div id='link-contact' onClick={this.handleSideNav}></div>
+        </nav>
 
         <Swipe allowMouseEvents={true}
           onSwipeDown={this.swipeDown} 
@@ -121,8 +187,6 @@ class App extends Component {
                 <FontAwesomeIcon icon={faGithub} size='4x' />
               </a>
             </div>
-
-            <br />
 
             <div className='scroll-button'>
               <p>Scroll down!</p>

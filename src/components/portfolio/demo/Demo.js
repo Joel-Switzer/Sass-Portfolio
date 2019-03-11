@@ -16,7 +16,7 @@ export class Demo extends Component {
         <div id='demo-modal' className={display}>
           <div className='demo-content'>
             <button className="demo-close" onClick={this.props.closeDemo}>X</button>
-            {this.props.content}
+            { this.props.content }
           </div>
         </div>
       </div>

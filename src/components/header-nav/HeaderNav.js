@@ -6,7 +6,7 @@ import './HeaderNav.scss'
 
 
 export class HeaderNav extends Component {
-  
+
   // Toggle the menu
   toggleMenu = () => {
     document.querySelector('.btn-menu').classList.toggle('close')

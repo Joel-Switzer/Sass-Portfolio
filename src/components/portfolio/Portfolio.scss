@@ -68,13 +68,18 @@
     transform: translateX(-15%);
   }
 }
-@media screen and (max-width: 1399px) and (min-width: 1171px){
+@media screen and (max-width: 1399px) and (min-width: 1235px){
   .portfolio-display {
     transform: translateX(-10%);
   }
 }
-@media screen and (max-width: 1170px) and (min-width: 1070px){
+@media screen and (max-width: 1235px) and (min-width: 1100px){
   .portfolio-display {
     transform: translateX(-5%);
+  }
+}
+@media screen and (max-width: 990px){
+  .project-list {
+    width: 600px;
   }
 }

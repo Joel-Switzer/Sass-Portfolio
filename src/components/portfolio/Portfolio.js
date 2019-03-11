@@ -18,17 +18,11 @@ export class Portfolio extends Component {
     this.state = {
       demo: '',
       showDemo: false,
-      doorsTriggered: false,
       projects: [
         {
           id: 3,
           name: 'My First Portfolio',
-          component: 
-            <h1>
-              <a href='https://joel-switzer.github.io/My-First-Portfolio/' target='_blank' rel="noopener noreferrer">
-                https://joel-switzer.github.io/My-First-Portfolio/
-              </a>
-            </h1>,
+          component: 'https://joel-switzer.github.io/My-First-Portfolio/',
           imgSrc: PreviewFirstPortfolio,
           github: 'https://github.com/Joel-Switzer/My-First-Portfolio',
           skills: [
@@ -66,12 +60,22 @@ export class Portfolio extends Component {
     }
   }
 
-  // Open & close the project demo modal
+  // Handle project demo button click
   demoClick = (component) => {
-    this.setState({
-      demo: component, 
-      showDemo: true
-    })
+    const regex = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
+    try {
+      // If the component is a URL open it in a new window instead
+      if (component.match(regex)) {
+        window.open(component)
+      }
+    }
+    catch {
+      // Display component in demo modal
+      this.setState({
+        demo: component, 
+        showDemo: true
+      })
+    }
   }
   closeDemo = () => {
     this.setState({
