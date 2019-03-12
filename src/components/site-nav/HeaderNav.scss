@@ -103,13 +103,16 @@
         font-weight: 300;
         padding: .5rem 0;
         color: $compliment;
+
         &:hover {
           color: $secondary-color;
         }
-
         &.show {
           // Slide down from top with menu
           transform: translate3d(0, 0, 0);
+        }
+        div {
+          cursor: pointer;
         }
         .active-link {
           color: $secondary-color;

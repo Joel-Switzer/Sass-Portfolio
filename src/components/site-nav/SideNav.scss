@@ -26,10 +26,13 @@
   .dark {
     background-color: black;
   }
+  .menu.dark {
+    background: set-text-color($primary-color);
+  }
 
   .active {
     transition: 1s !important;
     transform: scale(1.5);
-    background-color: $secondary-color;
+    background-color: $secondary-color !important;
   }
 }

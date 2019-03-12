@@ -4,8 +4,7 @@ import Swipe from 'react-easy-swipe'
 import './App.scss'
 
 // Site components & sections
-import HeaderNav from './components/header-nav/HeaderNav'
-import SideNav from './components/side-nav/SideNav'
+import SiteNav from './components/site-nav/SiteNav'
 import Home from './components/home-page/HomePage'
 import AboutMe from './components/about-me/AboutMe'
 import Portfolio from './components/portfolio/Portfolio'
@@ -96,10 +95,8 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <HeaderNav current={current} debounce={this.debounce} />
+          <SiteNav current={current} pages={pages} debounce={this.debounce} />
         </header>
-
-        <SideNav current={current} pages={pages} debounce={this.debounce} />
 
         <Swipe onSwipeDown={this.swipeDown} onSwipeUp={this.swipeUp}>
           <section id='home-main'>
