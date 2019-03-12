@@ -14,8 +14,18 @@ import ContactMe from './components/contact-me/ContactMe'
 class App extends Component {
   constructor(props) {
     super(props)
+    const incriment = document.documentElement.clientHeight, 
+      pageInfo = {
+        i: incriment,
+        home: 0, 
+        about: incriment * 1,
+        portfolio: incriment * 2,
+        contact: incriment * 3
+      }
+
     this.state = {
-      currentSection: 0,
+      current: 0,
+      pages: pageInfo,
       scrollDelay: 100
     }
   }
@@ -30,8 +40,8 @@ class App extends Component {
 
   // Scroll handler
   handleScroll = (e) => {
-    const incriment = document.documentElement.clientHeight
-    let current = this.state.currentSection
+    const incriment = this.state.pages.i
+    let current = this.state.current
 
     // Set scroll direction
     if (e.deltaY < 0 || e === 'up') {
@@ -49,13 +59,10 @@ class App extends Component {
 
     // Scroll to section. Debounce was implemented to reduce scroll sensitivity
     this.debounce(current)
-
-    // Update menu to reflect scroll
-    this.updateMenu(current, incriment)
   }
 
-  // Debounce for scroll events
-  debounce = (current) => {
+  // Debounce function for scroll events
+  debounce = (target) => {
     let delay = this.state.scrollDelay
     let temp
 
@@ -66,55 +73,12 @@ class App extends Component {
 
     // Scroll to section after delay
     temp = setTimeout(() => {
-      Scroll.scrollTo(current)
+      Scroll.scrollTo(target)
       this.setState({
-        currentSection: current
+        current: target
       })
       temp = null
     }, delay)
-  }
-
-  // Update side nav and hamburger menu when scrolled
-  updateMenu = (current, i) => {
-    const menuBars = document.querySelectorAll('.btn-menu .bar')
-    const sideNav = document.querySelectorAll('.side-nav div')
-    const home = 0, 
-      about = i * 1,
-      portfolio = i * 2,
-      contact = i * 3
-
-    // Switch active class to correct link
-    let temp = null;
-    sideNav.forEach(item => item.classList.remove('active'))
-    switch (current) {
-      case home:
-        temp = document.querySelector('#link-home')
-        temp.classList.add('active')
-        break
-      case about:
-        temp = document.querySelector('#link-about')
-        temp.classList.add('active')
-        break
-      case portfolio:
-        temp = document.querySelector('#link-portfolio')
-        temp.classList.add('active')
-        break
-      case contact:
-        temp = document.querySelector('#link-contact')
-        temp.classList.add('active')
-        break
-      default: 
-        break
-    }
-
-    // Set menu colors for section
-    if (current === portfolio) {
-      menuBars.forEach(item => item.classList.add('dark'))
-      sideNav.forEach(item => item.classList.add('dark'))
-    } else {
-      menuBars.forEach(item => item.classList.remove('dark'))
-      sideNav.forEach(item => item.classList.remove('dark'))
-    }
   }
 
   // Handle swipe events on mobile
@@ -125,45 +89,17 @@ class App extends Component {
     this.handleScroll('down')
   }
   
-  // Handle clicking side nav buttons
-  handleSideNav = (e) => {
-    const i = document.documentElement.clientHeight,
-      home = 0, 
-      about = i * 1,
-      portfolio = i * 2,
-      contact = i * 3
-
-    switch(e.target.id) {
-      case 'link-home':
-        this.debounce(home)
-        this.updateMenu(home, i)
-        break
-      case 'link-about':
-        this.debounce(about)
-        this.updateMenu(about, i)
-        break
-      case 'link-portfolio':
-        this.debounce(portfolio)
-        this.updateMenu(portfolio, i)
-        break
-      case 'link-contact':
-        this.debounce(contact)
-        this.updateMenu(contact, i)
-        break
-      default:
-        break
-    }
-  }
-
   render() {
-    const current = this.state.currentSection
+    const current = this.state.current,
+      pages = Object.assign({}, this.state.pages)
+
     return (
       <div className="App">
         <header>
           <HeaderNav current={current} />
         </header>
 
-        <SideNav current={current} handleSideNav={this.handleSideNav} />
+        <SideNav current={current} pages={pages} debounce={this.debounce} />
 
         <Swipe onSwipeDown={this.swipeDown} onSwipeUp={this.swipeUp}>
           <section id='home-main'>

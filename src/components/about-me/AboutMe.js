@@ -12,7 +12,7 @@ export class AboutMe extends Component {
           <img className='portrait' src={Portrait} alt='Joel Switzer' />
           <div><h2>About me</h2></div>
         </div>
-        <div clasName='about-me-content'>
+        <div className='about-me-content'>
           <div className='education'>
           
           </div>

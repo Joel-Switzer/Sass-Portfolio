@@ -6,6 +6,15 @@ import './HeaderNav.scss'
 
 
 export class HeaderNav extends Component {
+  componentDidUpdate() {
+    // Change menu color on portfolio section
+    const menuBars = document.querySelectorAll('.btn-menu .bar')
+    if (this.props.current === document.documentElement.clientHeight * 2) {
+      menuBars.forEach(item => item.classList.add('dark'))
+    } else {
+      menuBars.forEach(item => item.classList.remove('dark'))
+    }
+  }
 
   // Toggle the menu
   toggleMenu = () => {
@@ -29,29 +38,29 @@ export class HeaderNav extends Component {
             <img src={Portrait} className='portrait' alt='portrait'/>
           </div>
           <ul className='nav-menu'>
-            <li>
-              <Link to='home-main' 
+            <li id='home-link'>
+              <Link to='home-main'
                 activeClass='active-link'
                 spy={true}
                 smooth={true}
                 duration={500}> Home </Link>
             </li>
-            <li >
+            <li id='about-link'>
               <Link to='about-me' 
                 activeClass='active-link'
                 spy={true}
                 smooth={true}
                 duration={500}> About Me </Link>
             </li>
-            <li>
-              <Link to='my-portfolio' 
+            <li id='portfolio-link'>
+              <Link to='my-portfolio'
                 activeClass='active-link'
                 spy={true}
                 smooth={true}
                 duration={500}> Portfolio </Link>
             </li>
-            <li>
-              <Link to='contact-me' 
+            <li id='contact-link'>
+              <Link to='contact-me'
                 activeClass='active-link'
                 spy={true}
                 smooth={true}

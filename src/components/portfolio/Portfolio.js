@@ -62,7 +62,7 @@ export class Portfolio extends Component {
 
   // Handle project demo button clicks
   demoClick = (component) => {
-    const urlRegex = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
+    const urlRegex = /(?:(?:https?|ftp|file):|www.|ftp.)(?:([-A-Z0-9+&@#/%=~_|$?!:,.]*)|[-A-Z0-9+&@#%=~_|$?!:,.])*(?:([-A-Z0-9+&@#%=~_|$?!:,.]*)|[A-Z0-9+&@#%=~_|$])/igm
     try {
       // If the component is a URL open it in a new window instead
       if (component.match(urlRegex)) {
