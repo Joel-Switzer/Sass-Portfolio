@@ -1,12 +1,16 @@
 @import '../../shared.scss';
 
 // Home page styles
-#home-main {
+.home-main {
   padding-top: 30vh;
   text-align: center;
   line-height: 1.5;
-  
-  h1, h2, h3 {
+
+  &.overlay-wrapper {
+    background: rgba(16, 17, 20, .9);
+  }
+
+  h1, h2 {
     margin: 0;
     font-weight: 400;
   
@@ -26,7 +30,7 @@
 
     a {
       padding: .5rem;
-      color: white;
+      color: $compliment;
       &:hover {
         color: $secondary-color;
         @include easeOut();

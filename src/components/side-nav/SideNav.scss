@@ -9,7 +9,7 @@
   
   div {
     cursor: pointer;
-    background-color: white;
+    background-color: $compliment;
     transition: background-color 2s;
     margin-bottom: .5rem;
     border: 1px solid black;
@@ -28,7 +28,7 @@
   }
 
   .active {
-    transition: .5s !important;
+    transition: 1s !important;
     transform: scale(1.5);
     background-color: $secondary-color;
   }

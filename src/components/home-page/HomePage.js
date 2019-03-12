@@ -9,7 +9,7 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 export class HomePage extends Component {
   render() {
     return (
-      <div>
+      <div className='home-main overlay-wrapper'>
         <h1 className='main-header'><span className='highlight'>Joel</span> Switzer</h1>
         <h2 className='sub-header'><span>Web Developer, Professional Learner</span></h2>
       

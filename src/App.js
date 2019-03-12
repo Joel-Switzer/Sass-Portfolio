@@ -14,13 +14,13 @@ import ContactMe from './components/contact-me/ContactMe'
 class App extends Component {
   constructor(props) {
     super(props)
-    const incriment = document.documentElement.clientHeight, 
+    const i = document.documentElement.clientHeight, 
       pageInfo = {
-        i: incriment,
+        incriment: i,
         home: 0, 
-        about: incriment * 1,
-        portfolio: incriment * 2,
-        contact: incriment * 3
+        about: i * 1,
+        portfolio: i * 2,
+        contact: i * 3
       }
 
     this.state = {
@@ -40,20 +40,20 @@ class App extends Component {
 
   // Scroll handler
   handleScroll = (e) => {
-    const incriment = this.state.pages.i
+    const i = this.state.pages.incriment
     let current = this.state.current
 
     // Set scroll direction
     if (e.deltaY < 0 || e === 'up') {
-      current -= incriment
+      current -= i
       if (current < 0) {
         current = 0
       }
     }
     else if (e.deltaY > 0 || e === 'down' || e.target.value === 'down') {
-      current += incriment
-      if (current > incriment * 3) {
-        current = incriment * 3
+      current += i
+      if (current > i * 3) {
+        current = i * 3
       }
     }
 
@@ -90,20 +90,20 @@ class App extends Component {
   }
   
   render() {
-    const current = this.state.current,
-      pages = Object.assign({}, this.state.pages)
+    const pages = Object.assign({}, this.state.pages),
+      current = this.state.current
 
     return (
       <div className="App">
         <header>
-          <HeaderNav current={current} />
+          <HeaderNav current={current} debounce={this.debounce} />
         </header>
 
         <SideNav current={current} pages={pages} debounce={this.debounce} />
 
         <Swipe onSwipeDown={this.swipeDown} onSwipeUp={this.swipeUp}>
           <section id='home-main'>
-            <Home scroll={this.handleScroll}/>
+            <Home scroll={this.handleScroll} />
           </section>
           
           <section id='about-me'>

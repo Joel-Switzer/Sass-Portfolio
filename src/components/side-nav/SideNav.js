@@ -40,23 +40,21 @@ export class SideNav extends Component {
 
   // Handle clicking side nav buttons
   handleClick = (e) => {
-    const pages = Object.assign({}, this.props.pages), 
-      { home, about, portfolio, contact } = this.props.pages // Destructure page object
-      
-        
+    const { home, about, portfolio, contact } = this.props.pages // Destructure page object
     document.querySelectorAll('.side-nav div').forEach(item => item.classList.remove('active'))
+    
     switch(e.target.id) {
       case 'link-home':
-        this.props.debounce(home, pages)
+        this.props.debounce(home)
         break
       case 'link-about':
-        this.props.debounce(about, pages)
+        this.props.debounce(about)
         break
       case 'link-portfolio':
-        this.props.debounce(portfolio, pages)
+        this.props.debounce(portfolio)
         break
       case 'link-contact':
-        this.props.debounce(contact, pages)
+        this.props.debounce(contact)
         break
       default:
         break

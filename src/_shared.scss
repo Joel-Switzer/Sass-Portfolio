@@ -2,6 +2,7 @@
 
 $primary-color: #282c34;
 $secondary-color: #15b0f6;
+$compliment: #ffffff;
 
 $bg-home: url(./images/bg-light-2.jpeg);
 $bg-about-me: url(./images/bg-dark.jpeg);
@@ -21,21 +22,10 @@ $bg-contact-me: url(./images/bg-dark-2.jpg);
   @if $bg == $bg-home {
     background-color: $primary-color;
     color: set-text-color($primary-color);
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      z-index: 1;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1 !important;
-      background: rgba(16, 17, 20, .9);
-    }
   }
   @else if $bg == $bg-portfolio {
-    background-color: white;
-    color: set-text-color(white);
+    background-color: $compliment;
+    color: set-text-color($compliment);
   }
   @else if $bg == $bg-about-me or $bg == $bg-contact-me {
     background-color: $primary-color;
@@ -49,7 +39,7 @@ $bg-contact-me: url(./images/bg-dark-2.jpg);
   @if (lightness($color) > 40) {
     @return black;
   } @else {
-    @return white;
+    @return $compliment;
   }
 }
 
