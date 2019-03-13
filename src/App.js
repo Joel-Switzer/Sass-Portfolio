@@ -10,7 +10,8 @@ import AboutMe from './components/about-me/AboutMe'
 import Portfolio from './components/portfolio/Portfolio'
 import ContactMe from './components/contact-me/ContactMe'
 
-let temp = null
+// Debounce event
+let scrollEvent = null
 
 class App extends Component {
   constructor(props) {
@@ -41,7 +42,7 @@ class App extends Component {
 
   // Scroll handler
   handleScroll = (e) => {
-    const i = this.state.pages.incriment
+    const { incriment: i, contact: lastPage} = this.state.pages
     let current = this.state.current
 
     // Set scroll direction
@@ -53,8 +54,8 @@ class App extends Component {
     }
     else if (e.deltaY > 0 || e === 'down' || e.target.value === 'down') {
       current += i
-      if (current > i * 3) {
-        current = i * 3
+      if (current > lastPage) {
+        current = lastPage
       }
     }
 
@@ -67,17 +68,17 @@ class App extends Component {
     const delay = this.state.scrollDelay
 
     // Clear unexecuted events
-    if (temp) {
-      clearTimeout(temp) 
+    if (scrollEvent) {
+      clearTimeout(scrollEvent) 
     } 
 
     // Scroll to section after delay
-    temp = setTimeout(() => {
+    scrollEvent = setTimeout(() => {
       Scroll.scrollTo(target)
       this.setState({
         current: target
       })
-      setTimeout(temp = null, delay)
+      setTimeout(scrollEvent = null, delay)
     }, 100)
   }
 

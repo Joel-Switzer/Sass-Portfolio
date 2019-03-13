@@ -1,47 +1,37 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Portrait from '../../images/me.jpg'
-import './HeaderNav.scss'
-import './SideNav.scss'
-
+import './SiteNav.scss'
 
 export class SiteNav extends Component {
 
   componentDidUpdate() {
     const { home, about, portfolio, contact } = this.props.pages,
-      menuBars = document.querySelectorAll('.btn-menu .bar'),
-      menuItems = document.querySelectorAll('.nav-menu li div'),
-      sideNav = document.querySelectorAll('.side-nav div'),
+      menuBars = document.querySelectorAll('.btn-menu .bar, .side-nav div'),
+      menuItems = document.querySelectorAll('.nav-menu li div, .side-nav div'),
       current = this.props.current
 
     // Change menu color on portfolio section
     if (current === portfolio) {
       menuBars.forEach(item => item.classList.add('dark'))
-      sideNav.forEach(item => item.classList.add('dark'))
     } else {
       menuBars.forEach(item => item.classList.remove('dark'))
-      sideNav.forEach(item => item.classList.remove('dark'))
     }
 
     // Switch active class to correct link
-    menuItems.forEach(item => item.classList.remove('active-link'))
-    sideNav.forEach(item => item.classList.remove('active'))
+    menuItems.forEach(item => item.classList.remove('active'))
     switch (current) {
       case home:
-        document.querySelector('#home-link').classList.add('active-link')
-        document.querySelector('#link-home').classList.add('active')
+        document.querySelectorAll('#link-home').forEach(item => item.classList.add('active'))
         break
       case about:
-        document.querySelector('#about-link').classList.add('active-link')
-        document.querySelector('#link-about').classList.add('active')
+        document.querySelectorAll('#link-about').forEach(item => item.classList.add('active'))
         break
       case portfolio:
-        document.querySelector('#portfolio-link').classList.add('active-link')
-        document.querySelector('#link-portfolio').classList.add('active')
+        document.querySelectorAll('#link-portfolio').forEach(item => item.classList.add('active'))
         break
       case contact:
-        document.querySelector('#contact-link').classList.add('active-link')
-        document.querySelector('#link-contact').classList.add('active')
+        document.querySelectorAll('#link-contact').forEach(item => item.classList.add('active'))
         break
       default: 
         break
@@ -51,10 +41,7 @@ export class SiteNav extends Component {
   // Toggle the hamburger menu
   toggleMenu = () => {
     document.querySelector('.btn-menu').classList.toggle('close')
-    document.querySelector('.menu-overlay').classList.toggle('show')
-    document.querySelector('.branding').classList.toggle('show')
-    document.querySelector('.nav-menu').classList.toggle('show')
-    document.querySelectorAll('.nav-menu li').forEach(item => item.classList.toggle('show'))
+    document.querySelectorAll('.menu-overlay, .branding, .nav-menu, .nav-menu li').forEach(item => item.classList.toggle('show'))
     document.querySelectorAll('.side-nav div').forEach(item => item.classList.toggle('menu')) // Side nav color
   }
 
@@ -63,16 +50,16 @@ export class SiteNav extends Component {
     const { home, about, portfolio, contact } = this.props.pages // Destructure page object
     let id = e.target.id
     switch(true) {
-      case id==='link-home' || id==='home-link':
+      case id==='link-home':
         this.props.debounce(home)
         break
-      case id==='link-about' || id==='about-link':
+      case id==='link-about':
         this.props.debounce(about)
         break
-      case id==='link-portfolio' || id==='portfolio-link':
+      case id==='link-portfolio':
         this.props.debounce(portfolio)
         break
-      case id==='link-contact' || id==='contact-link':
+      case id==='link-contact':
         this.props.debounce(contact)
         break
       default:
@@ -95,10 +82,10 @@ export class SiteNav extends Component {
               <img src={Portrait} className='portrait' alt='portrait'/>
             </div>
             <ul className='nav-menu'>
-              <li><div id='home-link' onClick={this.handleClick} className='active-link'>Home</div></li>
-              <li><div id='about-link' onClick={this.handleClick}>About Me</div></li>
-              <li><div id='portfolio-link' onClick={this.handleClick}>My Portfolio</div></li>
-              <li><div id='contact-link' onClick={this.handleClick}>Contact Me</div></li>
+              <li><div id='link-home' onClick={this.handleClick} className='active'>Home</div></li>
+              <li><div id='link-about' onClick={this.handleClick}>About Me</div></li>
+              <li><div id='link-portfolio' onClick={this.handleClick}>My Portfolio</div></li>
+              <li><div id='link-contact' onClick={this.handleClick}>Contact Me</div></li>
             </ul>
           </div>
         </nav>
