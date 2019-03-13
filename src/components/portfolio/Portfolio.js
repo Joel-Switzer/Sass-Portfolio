@@ -29,8 +29,7 @@ export class Portfolio extends Component {
             'React.JS',
             'Responsive CSS',
             'HTML5',
-            'React-scroll',
-            'React-waypoint'
+            'React-scroll'
           ]
         },
         {

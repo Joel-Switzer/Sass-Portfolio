@@ -13,8 +13,10 @@
 
   #home-main {
     padding-top: 17vh !important;
-    transform: scale(.85);
 
+    .shrink-wrapper {
+      transform: scale(.85) translateY(-25%);
+    }
     .main-header {
       font-size: 4rem !important;
       line-height: 1 !important;
@@ -29,9 +31,6 @@
     }
     p {
       font-size: 1.1rem !important;
-    }
-    .scroll-button {
-      margin-top: 12vh !important;
     }
   } // END HOME MAIN
 

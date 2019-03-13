@@ -58,11 +58,9 @@ export class SiteNav extends Component {
     document.querySelectorAll('.side-nav div').forEach(item => item.classList.toggle('menu')) // Side nav color
   }
 
-  // Handle clicking side nav buttons
+  // Handle clicking nav buttons & links
   handleClick = (e) => {
     const { home, about, portfolio, contact } = this.props.pages // Destructure page object
-    document.querySelectorAll('.side-nav div').forEach(item => item.classList.remove('active'))
-    
     let id = e.target.id
     switch(true) {
       case id==='link-home' || id==='home-link':
@@ -97,18 +95,10 @@ export class SiteNav extends Component {
               <img src={Portrait} className='portrait' alt='portrait'/>
             </div>
             <ul className='nav-menu'>
-              <li>
-                <div id='home-link' onClick={this.handleClick} className='active-link'>Home</div>
-              </li>
-              <li>
-                <div id='about-link' onClick={this.handleClick}>About Me</div>
-              </li>
-              <li>
-                <div id='portfolio-link' onClick={this.handleClick}>My Portfolio</div>
-              </li>
-              <li>
-                <div id='contact-link' onClick={this.handleClick}>Contact Me</div>
-              </li>
+              <li><div id='home-link' onClick={this.handleClick} className='active-link'>Home</div></li>
+              <li><div id='about-link' onClick={this.handleClick}>About Me</div></li>
+              <li><div id='portfolio-link' onClick={this.handleClick}>My Portfolio</div></li>
+              <li><div id='contact-link' onClick={this.handleClick}>Contact Me</div></li>
             </ul>
           </div>
         </nav>

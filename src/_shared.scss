@@ -49,7 +49,7 @@ $bg-contact-me: url(./images/bg-dark-2.jpg);
 }
 
 
-/* ===== Media query mixins in _mobile.scss ===== */
+/* ===== Media query content in _mobile.scss ===== */
 @mixin mediaSm {
   @media screen and (max-width: 500px) {
     @content; 

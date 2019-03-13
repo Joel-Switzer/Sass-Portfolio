@@ -10,6 +10,8 @@ import AboutMe from './components/about-me/AboutMe'
 import Portfolio from './components/portfolio/Portfolio'
 import ContactMe from './components/contact-me/ContactMe'
 
+let temp = null
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -25,7 +27,7 @@ class App extends Component {
     this.state = {
       current: 0,
       pages: pageInfo,
-      scrollDelay: 100
+      scrollDelay: 500
     }
   }
   
@@ -59,16 +61,15 @@ class App extends Component {
     // Scroll to section. Debounce was implemented to reduce scroll sensitivity
     this.debounce(current)
   }
-
+  
   // Debounce function for scroll events
   debounce = (target) => {
-    let delay = this.state.scrollDelay
-    let temp
+    const delay = this.state.scrollDelay
 
     // Clear unexecuted events
     if (temp) {
       clearTimeout(temp) 
-    }
+    } 
 
     // Scroll to section after delay
     temp = setTimeout(() => {
@@ -76,8 +77,8 @@ class App extends Component {
       this.setState({
         current: target
       })
-      temp = null
-    }, delay)
+      setTimeout(temp = null, delay)
+    }, 100)
   }
 
   // Handle swipe events on mobile
