@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './HomePage.scss'
 
 // Fontawesome Icons
@@ -36,4 +37,8 @@ export class HomePage extends Component {
   }
 }
 
+// Ensure proptypes are required
+HomePage.propTypes = {
+  scroll: PropTypes.func.isRequired
+}
 export default HomePage

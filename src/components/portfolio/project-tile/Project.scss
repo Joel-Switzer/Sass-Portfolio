@@ -82,9 +82,11 @@
       min-height: 50px;
       transform: translateX(-50%);
       border-radius: 100px;
-      border: 2px groove black;
+      border: 2px solid black;
 
       img {
+        display: flex;
+        align-self: center;
         padding-left: .2rem;
         height: 40px;
       }

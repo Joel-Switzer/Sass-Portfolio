@@ -10,7 +10,7 @@ import AboutMe from './components/about-me/AboutMe'
 import Portfolio from './components/portfolio/Portfolio'
 import ContactMe from './components/contact-me/ContactMe'
 
-// Debounce event
+// Debounce scroll event
 let scrollEvent = null
 
 class App extends Component {
@@ -72,7 +72,7 @@ class App extends Component {
       clearTimeout(scrollEvent) 
     } 
 
-    // Scroll to section after delay
+    // Scroll to section & delay next event
     scrollEvent = setTimeout(() => {
       Scroll.scrollTo(target)
       this.setState({

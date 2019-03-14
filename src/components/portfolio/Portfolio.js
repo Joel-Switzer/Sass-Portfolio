@@ -54,6 +54,20 @@ export class Portfolio extends Component {
             'React.JS',
             'HTML & CSS'
           ]
+        },
+        {
+          id: 0,
+          name: 'TEST CARD',
+          component: <h1>TEST CARD</h1>,
+          imgSrc: PreviewFirstPortfolio,
+          github: 'https://github.com/Joel-Switzer/My-First-Portfolio',
+          skills: [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5'
+          ]
         }
       ]
     }
@@ -63,7 +77,7 @@ export class Portfolio extends Component {
   demoClick = (component) => {
     const urlRegex = /(?:(?:https?|ftp|file):|www.|ftp.)(?:([-A-Z0-9+&@#/%=~_|$?!:,.]*)|[-A-Z0-9+&@#%=~_|$?!:,.])*(?:([-A-Z0-9+&@#%=~_|$?!:,.]*)|[A-Z0-9+&@#%=~_|$])/igm
     try {
-      // If the component is a URL open it in a new window instead
+      // If the project is a URL open it in a new window instead
       if (component.match(urlRegex)) {
         window.open(component)
       }

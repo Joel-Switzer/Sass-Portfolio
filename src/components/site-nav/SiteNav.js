@@ -47,7 +47,7 @@ export class SiteNav extends Component {
 
   // Handle clicking nav buttons & links
   handleClick = (e) => {
-    const { home, about, portfolio, contact } = this.props.pages // Destructure page object
+    const { home, about, portfolio, contact } = this.props.pages // Destructure
     let id = e.target.id
     switch(true) {
       case id==='link-home':
@@ -81,6 +81,7 @@ export class SiteNav extends Component {
             <div className='branding'>
               <img src={Portrait} className='portrait' alt='portrait'/>
             </div>
+
             <ul className='nav-menu'>
               <li><div id='link-home' onClick={this.handleClick} className='active'>Home</div></li>
               <li><div id='link-about' onClick={this.handleClick}>About Me</div></li>

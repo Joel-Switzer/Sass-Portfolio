@@ -55,7 +55,7 @@
 
     &.show {
       visibility: visible;
-      opacity: .9;
+      opacity: .95;
     }
 
     .branding, .nav-menu {
@@ -72,8 +72,8 @@
       transform: translate3d(0, 100%, 0);
       background: $primary-color;
       
+      // Slide up from bottom
       &.show {
-        // Slide up from bottom
         transform: translate3d(0, 0, 0);
       }
 
@@ -92,8 +92,8 @@
       list-style-type: none;
       background: darken($primary-color, 5);
 
+      // Slide down from top
       &.show {
-        // Nav menu - slide down from top
         transform: translate3d(0, 0, 0);
       }
       li {
@@ -108,7 +108,6 @@
           color: $secondary-color;
         }
         &.show {
-          // Slide down from top with menu
           transform: translate3d(0, 0, 0);
         }
         div {

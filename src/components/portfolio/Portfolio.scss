@@ -22,7 +22,7 @@
       border-right: 4px solid black;
       padding: 2.5rem 0;
       min-width: 300px;
-      max-width: 900px;   
+      max-width: 884px;   
     }
 
     // Wrapper to position nav elements with
@@ -42,21 +42,26 @@
       background-color: lightgrey;
       background-position: center;
       background-repeat: no-repeat;
+      transition: all .5s;
   
       &.left-arrow {
         left: 0;
         transform: translate(-45%, -50%);
         background-image: url(./images/left-arrow.png);
+        &:hover {
+          transform: translate(-45%, -50%) scale(1.1);
+        }
       }
       &.right-arrow {
         right: 0;
         transform: translate(45%, -50%);
         background-image: url(./images/right-arrow.png);
+        &:hover {
+          transform: translate(45%, -50%) scale(1.1);
+        }
       }
       &:hover {
-        transition: .75s;
-        background-color: cyan;
-        border: 2px solid $secondary-color;
+        background-color: lighten($secondary-color, 20);
       }
     }
   }
