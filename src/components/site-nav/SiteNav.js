@@ -8,7 +8,7 @@ export class SiteNav extends Component {
   componentDidUpdate() {
     const { home, about, portfolio, contact } = this.props.pages,
       menuBars = document.querySelectorAll('.btn-menu .bar, .side-nav div'),
-      menuItems = document.querySelectorAll('.nav-menu li div, .side-nav div'),
+      menuItems = document.querySelectorAll('.nav li div, .side-nav div'),
       current = this.props.current
 
     // Change menu color on portfolio section
@@ -41,14 +41,14 @@ export class SiteNav extends Component {
   // Toggle the hamburger menu
   toggleMenu = () => {
     document.querySelector('.btn-menu').classList.toggle('close')
-    document.querySelectorAll('.menu-overlay, .branding, .nav-menu, .nav-menu li').forEach(item => item.classList.toggle('show'))
+    document.querySelectorAll('.menu, .branding, .nav, .nav li').forEach(item => item.classList.toggle('show'))
     document.querySelectorAll('.side-nav div').forEach(item => item.classList.toggle('menu')) // Side nav color
   }
 
   // Handle clicking nav buttons & links
   handleClick = (e) => {
-    const { home, about, portfolio, contact } = this.props.pages // Destructure
-    let id = e.target.id
+    const { home, about, portfolio, contact } = this.props.pages, // Destructure
+      id = e.target.id
     switch(true) {
       case id==='link-home':
         this.props.debounce(home)
@@ -77,12 +77,12 @@ export class SiteNav extends Component {
             <div className='bar'></div>
           </div>
 
-          <div className='menu-overlay'>
+          <div className='menu'>
             <div className='branding'>
               <img src={Portrait} className='portrait' alt='portrait'/>
             </div>
 
-            <ul className='nav-menu'>
+            <ul className='nav'>
               <li><div id='link-home' onClick={this.handleClick} className='active'>Home</div></li>
               <li><div id='link-about' onClick={this.handleClick}>About Me</div></li>
               <li><div id='link-portfolio' onClick={this.handleClick}>My Portfolio</div></li>

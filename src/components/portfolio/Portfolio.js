@@ -103,14 +103,14 @@ export class Portfolio extends Component {
           show={this.state.showDemo} 
           closeDemo={this.closeDemo} />
 
-        <div className='portfolio-display'>
-          <h2 className='portfolio-header'>My Portfolio</h2> 
+        <div className='portfolio'>
+          <h2 className='header'>My Portfolio</h2> 
 
-          <div className='portfolio-track'>
+          <div className='track'>
             <div className='nav-frame'>
-              <div className='carousel-nav left-arrow'></div>
+              <div className='nav left-arrow'></div>
 
-                <div className='project-list'>
+                <div className='projects'>
                   {this.state.projects.map((project, index) => (
                     <Project key={index} 
                       project={project}
@@ -118,7 +118,7 @@ export class Portfolio extends Component {
                   ))}
                 </div>
 
-              <div className='carousel-nav right-arrow'></div>
+              <div className='nav right-arrow'></div>
             </div>
           </div>
         </div>

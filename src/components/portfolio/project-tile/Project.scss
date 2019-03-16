@@ -7,7 +7,7 @@
   margin: 1rem;
 
   // Common properties on both divs
-  .tile-info, .tile-demo {
+  .info, .demo {
     position: absolute;
     padding: .5rem;
     top: 0;
@@ -19,7 +19,7 @@
   }
 
   // Top side of project tile
-  .tile-info {
+  .info {
     background-color: #192231;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, .3)), 
       url(../images/bg-matrix.jpg);
@@ -29,82 +29,79 @@
     z-index: 1;
     box-shadow: 0 36px 10px -20px rgba(0, 0, 0, .3);
 
-    h2, h3 {
-      border-top: 3px groove #15b0f6;
-      border-bottom: 3px groove #15b0f6;
-    }
-    h3 {
-      font-size: 1.3rem;
-    }
     img {
       max-width: 100%;
-      max-height: 12rem;
+      height: 12rem;
       padding: .5rem;
       border-radius: 20px;
     }
-    .skills-list {
-      display: flex;
-      text-align: initial;
-      font-size: 1.2rem;
-      flex-direction: column;
-      list-style: none;
+  }
 
-      li {
-        border-bottom: 1px groove #15b0f6;
-        min-width: 10rem;
+  h2, h3 {
+    border-top: 3px groove #15b0f6;
+    border-bottom: 3px groove #15b0f6;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
 
-        .norank {
-          font-size: 1rem;
-          padding-right: .7rem;
-          padding-left: .6rem;
-          font-weight: bold;
-          color: skyblue;
-        }
-      }
-    }
-  } // END TILE INFO
+  .skills-list {
+    display: flex;
+    text-align: initial;
+    font-size: 1.2rem;
+    flex-direction: column;
+    list-style: none;
+  }
+  li {
+    border-bottom: 1px groove #15b0f6;
+    min-width: 10rem;
+  }
+  .norank {
+    font-size: 1rem;
+    padding-right: .4rem;
+    padding-left: .5rem;
+    font-weight: bold;
+    color: skyblue;
+  }
     
   // Underside of project tile
-  .tile-demo {
+  .demo {
     background-color: #15b0f6;
     background: url(../images/bg-mobo.jpg); 
     background-size: cover;
+  }
+  // Demo and source buttons
+  .btn-demo, .btn-source {
+    position: absolute;
+    display: flex;
+    text-align: center;
+    bottom: 5%;
+    font-weight: bold;
+    min-width: 7rem;
+    min-height: 50px;
+    transform: translateX(-50%);
+    border-radius: 100px;
+    border: 2px solid black;
 
-    // Demo and source buttons
-    .btn-demo, 
-    .btn-source {
-      position: absolute;
-      display: flex;
-      text-align: center;
-      bottom: 5%;
-      font-weight: bold;
-      min-width: 7rem;
-      min-height: 50px;
-      transform: translateX(-50%);
-      border-radius: 100px;
-      border: 2px solid black;
-
-      img {
-        display: flex;
-        align-self: center;
-        padding-left: .2rem;
-        height: 40px;
-      }
-      label {
-        margin: auto .5rem;
-      }
-      &:hover {
-        transition: .5s;
-        background-color: #15b0f6;
-        border: 2px solid cyan;
-      }
+    &:hover {
+      transition: .5s;
+      background-color: #15b0f6;
+      border: 2px solid cyan;
     }
-    .btn-demo {
-      left: 72%;
+    img {
+      align-self: center;
+      padding-left: .2rem;
+      height: 40px;
     }
-    .btn-source {
-      left: 28%;
+    label {
+      margin: auto .5rem;
     }
+  }
+  .btn-demo {
+    left: 72%;
+  }
+  .btn-source {
+    left: 28%;
   }
 
   // CSS for animation
@@ -116,7 +113,7 @@
   }
 
   // Center tile contents
-  .center-content {
+  .center {
     display: flex;
     justify-content: center;
   }

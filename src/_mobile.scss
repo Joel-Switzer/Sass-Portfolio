@@ -3,78 +3,73 @@
 // Smartphones -- (max-width: 500px), lowest supported width: 320px
 @include mediaSm {
 
-  .side-nav {
-    
-    div {
-      height: .5rem !important;
-      width: .5rem !important;
-    }
+  .side-nav div {
+    height: .5rem !important;
+    width: .5rem !important;
   }
 
   #home-main {
     padding-top: 17vh !important;
 
-    .shrink-wrapper {
+    .wrapper {
       transform: scale(.85) translateY(-25%);
     }
-    .main-header {
+    .header {
       font-size: 4rem !important;
       line-height: 1 !important;
       padding-bottom: 1rem;
       font-size: 5.5rem !important;
     }
-    .sub-header span{
-      margin-bottom: 2rem;
+    .bg-lighten{
       font-size: 1.2rem;
       padding: .2rem 0 !important;
-      background: rgba(lighten($primary-color, 2), .5)
     }
     p {
       font-size: 1.1rem !important;
     }
   } // END HOME MAIN
 
-  .about-me-section {
-  
-    .title-div {
-      flex-direction: column !important;
+  .about {
 
-      .portrait {
-        align-self: center;
-        height: 10rem !important;
-        width: 10rem !important;
-        margin: .1rem !important;
-      }
+    .header {
+      flex-direction: column !important;
 
       div {
         padding: .2rem !important;
-
-        h2 {
-          font-size: 10vw !important;
-          max-width: 70vw;
-        }
       }
+      h2 {
+        font-size: 10vw !important;
+        max-width: 70vw;
+      }
+    }
+
+    .portrait {
+      align-self: center;
+      height: 10rem !important;
+      width: 10rem !important;
+      margin: .1rem !important;
     }
   } // END ABOUT ME
 
   // Portfolio section
-  .portfolio-display {
+  .portfolio {
 
-    .portfolio-header {
-      padding: .5rem 0 1rem 0;
+    .header {
+      margin-bottom: 2rem;
       font-size: 3rem !important;
     }
-    .project-list {
+    .projects {
       max-width: 300px !important;
     }
 
     // Scale down for extra small phones
-    @media screen and (max-width: 350px){
-      .portfolio-header {
-        font-size: 2.75rem !important;
+    @media screen and (max-width: 400px){
+      .header {
+        margin-top: 3rem;
+        margin-bottom: 0;
       }
-      .portfolio-track {
-        transform: translateY(-2.6rem) scale(.8);
+      .track {
+        transform: scale(.8);
       }
     }
   } // END PORTFOLIO
@@ -82,10 +77,10 @@
 
 // Tablets & Small Laptops -- (max-width: 768px)
 @include mediaMd {
-  .menu-overlay {
+  .menu {
     flex-flow: column wrap;
 
-    .branding, .nav-menu {
+    .branding, .nav {
       width: 100% !important;
 
       &.show {
@@ -96,26 +91,26 @@
       max-height: 35vh !important;
       transform: translate3d(-100%, 0, 0) !important;
       padding: 1rem;
-
-      .portrait {
-        width: auto !important;
-        height: 100% !important;
-      }
     }
-    .nav-menu {
+    .portrait {
+      width: auto !important;
+      height: 100% !important;
+    }
+    .nav {
       height: 65vh !important;
       transform: translate3d(100%, 0, 0) !important;
     }
-
   } // END NAV MENU
 
   // Portfolio section
-  .portfolio-display {
-
-    .project-list {
-      width: 592px !important;
+  .portfolio .projects {
+    width: 592px;
+  }
+  @media screen and (max-width: 710px){
+    .portfolio .projects {
+      width: 300px;
     }
-  } // END PORTFOLIO
+  }
 }
 
 // Desktop & Laptops -- (min-width: 769px) and (max-width: 1170px)

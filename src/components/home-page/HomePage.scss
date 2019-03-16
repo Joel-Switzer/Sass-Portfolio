@@ -13,29 +13,26 @@
   h1, h2 {
     margin: 0;
     font-weight: 400;
-  
-    &.main-header {
-      font-size: 6rem;
-    }
-    &.sub-header span{
-      margin-bottom: 2rem;
-      padding: .2rem 1rem;
-      background: rgba(lighten($primary-color, 2), .5);
-    }
+  }
+  .header {
+    font-size: 6rem;
+  }
+  .bg-lighten {
+    margin-bottom: 2rem;
+    padding: .2rem 1rem;
+    background: rgba(lighten($primary-color, 2), .5);
   }
 
   .icons {
     display: inline-block;
     margin: .5rem;
-
-    a {
-      padding: .5rem;
-      color: $compliment;
-
-      &:hover {
-        color: $secondary-color;
-        @include easeOut();
-      }
+  }
+  a {
+    padding: .5rem;
+    color: $compliment;
+    &:hover {
+      color: $secondary-color;
+      @include easeOut();
     }
   }
 
@@ -53,18 +50,18 @@
       border: none;
       animation: swipe-animation 2s infinite;
     }
-    
-    // Swipe animation
-    @keyframes swipe-animation {
-      0% {
-        transform: rotate(30deg)
-      }
-      50% {
-        transform: rotate(-30deg)
-      }
-      100% {
-        transform: rotate(30deg)
-      }
+  }
+  
+  // Swipe animation
+  @keyframes swipe-animation {
+    0% {
+      transform: rotate(30deg)
+    }
+    50% {
+      transform: rotate(-30deg)
+    }
+    100% {
+      transform: rotate(30deg)
     }
   }
 }

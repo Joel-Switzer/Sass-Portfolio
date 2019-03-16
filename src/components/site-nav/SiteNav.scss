@@ -46,7 +46,7 @@
     }
   } // END BTN-MENU
 
-  .menu-overlay {
+  .menu {
     position: fixed;
     display: flex;
     top: 0;
@@ -58,7 +58,7 @@
       opacity: .95;
     }
 
-    .branding, .nav-menu {
+    .branding, .nav {
       display: flex;
       flex: 1;
       flex-flow: column wrap;
@@ -76,17 +76,16 @@
       &.show {
         transform: translate3d(0, 0, 0);
       }
-
-      .portrait {
-        border: 2px solid $secondary-color;
-        opacity: 1;
-        height: 16rem;
-        width: 16rem;
-        border-radius: 50%;
-        align-self: center;
-      }
     }
-    .nav-menu {
+    .portrait {
+      border: 2px solid $secondary-color;
+      opacity: 1;
+      height: 16rem;
+      width: 16rem;
+      border-radius: 50%;
+      align-self: center;
+    }
+    .nav {
       @include easeOut;
       transform: translate3d(0, -100%, 0);
       list-style-type: none;
@@ -95,6 +94,9 @@
       // Slide down from top
       &.show {
         transform: translate3d(0, 0, 0);
+      }
+      div {
+        cursor: pointer;
       }
       li {
         @include easeOut;
@@ -110,18 +112,15 @@
         &.show {
           transform: translate3d(0, 0, 0);
         }
-        div {
-          cursor: pointer;
-        }
-        .active {
-          color: $secondary-color;
-          border-bottom: 2px solid $secondary-color;
-        }
       } 
+    }
+    .active {
+      color: $secondary-color;
+      border-bottom: 2px solid $secondary-color;
     }
     // Cascade animation on nav items
     @for $i from 1 through 4 {
-      .nav-menu li:nth-child(#{$i}) {
+      .nav li:nth-child(#{$i}) {
         transition-delay: $i * .1s;
       }
     }
@@ -158,7 +157,6 @@
   .menu.dark {
     background: set-text-color($primary-color);
   }
-
   .active {
     transition: 1s !important;
     transform: scale(1.5);

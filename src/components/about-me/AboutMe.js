@@ -7,12 +7,12 @@ import Portrait from '../../images/me.jpg'
 export class AboutMe extends Component {
   render() {
     return (
-      <div className='about-me-section overlay-wrapper'>
-        <div className='title-div'>
+      <div className='about overlay-wrapper'>
+        <div className='header'>
           <img className='portrait' src={Portrait} alt='Joel Switzer' />
           <div><h2>About me</h2></div>
         </div>
-        <div className='about-me-content'>
+        <div className='content'>
           <div className='education'>
           
           </div>
